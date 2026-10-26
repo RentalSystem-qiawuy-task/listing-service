@@ -42,7 +42,6 @@ dependencies {
 
 	// Messaging
 	implementation("org.springframework.boot:spring-boot-starter-kafka")
-	implementation("org.springframework.boot:spring-boot-starter-amqp")
 
 	// Security and validation
 	implementation("org.springframework.boot:spring-boot-starter-security")
@@ -68,7 +67,6 @@ dependencies {
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 
 	// Tests
-	testImplementation("org.springframework.boot:spring-boot-starter-amqp-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-batch-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")
 	testImplementation("org.springframework.boot:spring-boot-starter-kafka-test")

@@ -51,7 +51,7 @@ services:
       STORAGE_IMAGE_MAX_SIZE: ${STORAGE_IMAGE_MAX_SIZE:-5242880}
 
       # Kafka — use shared broker on the rental-net network
-      KAFKA_BOOTSTRAP_SERVERS: ${KAFKA_BOOTSTRAP_SERVERS:-kafka:9092}
+      KAFKA_BOOTSTRAP_SERVERS: ${KAFKA_DOCKER_BOOTSTRAP_SERVERS:-kafka:9092}
       KAFKA_CONSUMER_GROUP_ID: ${KAFKA_CONSUMER_GROUP_ID:-listing-service}
       KAFKA_AUTO_OFFSET_RESET: ${KAFKA_AUTO_OFFSET_RESET:-earliest}
       KAFKA_PRODUCER_RETRIES: ${KAFKA_PRODUCER_RETRIES:-10}
@@ -79,7 +79,7 @@ services:
 
       # Service discovery (Eureka)
       EUREKA_CLIENT_ENABLED: ${EUREKA_CLIENT_ENABLED:-true}
-      EUREKA_SERVER_URL: ${EUREKA_SERVER_URL:-http://discovery-server:8761/eureka/}
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: ${EUREKA_SERVER_URL:-http://discovery-server:8761/eureka/}
 
       # Actuator
       ACTUATOR_EXPOSED_ENDPOINTS: ${ACTUATOR_EXPOSED_ENDPOINTS:-health,info}
