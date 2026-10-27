@@ -10,7 +10,7 @@ spring:
     timeout-per-shutdown-phase: ${SHUTDOWN_TIMEOUT:20s}
 
   datasource:
-    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:listing_db}?currentSchema=${SCHEMA_NAME:listing_service},public
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:RoomRental}?currentSchema=${SCHEMA_NAME:listing_db},public
     username: ${DB_USER:postgres}
     password: ${DB_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
@@ -28,11 +28,10 @@ spring:
   flyway:
     enabled: true
     create-schemas: true
-    default-schema: ${SCHEMA_NAME:listing_service}
-    schemas: ${SCHEMA_NAME:listing_service}
+    default-schema: ${SCHEMA_NAME:listing_db}
+    schemas: ${SCHEMA_NAME:listing_db}
     locations: classpath:db/migration
-    baseline-on-migrate: true
-    baseline-version: 1
+    baseline-on-migrate: false
 
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
@@ -119,3 +118,4 @@ management:
 logging:
   level:
     root: ${LOGGING_LEVEL_ROOT:INFO}
+    org.flywaydb: DEBUG
